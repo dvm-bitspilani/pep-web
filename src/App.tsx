@@ -1,11 +1,13 @@
 import './App.css'
+import Registration from './pages/registration/Registration'
 
 function App() {
 
-  return (
-    <>
-    </>
-  )
+    return (
+        <>
+        <Registration></Registration>
+        </>
+    )
 }
 
 export default App
