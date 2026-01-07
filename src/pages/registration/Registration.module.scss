@@ -5,3 +5,11 @@
   font-family: Helvetica;
   display: flex;
 }
+
+
+@media screen and (max-width: 900px){
+  .page{
+    height: fit-content;
+    flex-direction: column;
+  }
+}
