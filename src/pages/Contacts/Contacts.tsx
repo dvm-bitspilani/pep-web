@@ -2,11 +2,7 @@ import styles from "./Contacts.module.scss";
 import contactIcon from "/Contacts/contactIcon.svg";
 import { contacts } from "./contactList";
 
-export default function Contacts({
-  setpage,
-}: {
-  setpage: React.Dispatch<React.SetStateAction<string>>;
-}): React.ReactElement {
+export default function Contacts(): React.ReactElement {
   return (
     <div className={styles.container}>
       {/* Header */}
@@ -15,7 +11,13 @@ export default function Contacts({
           <h1 className={styles.title}>
             <img src={contactIcon} alt="Contact Icon" /> Contact Us
           </h1>
-          <div className={styles.registerBtn} onClick={() => setpage("registration")}>
+          <div
+            className={styles.registerBtn}
+            onClick={() => {
+              window.history.pushState({}, "", "/");
+              window.dispatchEvent(new PopStateEvent("popstate"));
+            }}
+          >
             Register
           </div>
         </div>
