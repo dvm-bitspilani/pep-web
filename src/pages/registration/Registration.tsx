@@ -7,6 +7,7 @@ function Registration() {
         <div className={styles.page}>
         <Sidebar></Sidebar>
         <FormSection></FormSection>
+        <Sidebar bt={true}></Sidebar>
         </div>
     )
 }
