@@ -1,0 +1,93 @@
+@use "../../../../global.scss" as *;
+
+.page{
+  background-color: #305BE8;
+  width: 30vw;
+  height: 100vh;
+  font-family: Roboto, Arial, sans-serif;
+  color: white;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+  .topPage {
+  .heading{
+    width: 100%;
+    font-size: 2rem;
+    font-weight: 600;
+    padding-top: 20px;
+    font-family: $primary-font;
+  }
+  .dis{
+    font-size: 15px;
+    color: rgb(230, 230, 230);
+  }
+};
+
+  .Description{
+    display: flex;
+    flex-direction: column;
+    .paperCategories{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      .category{
+        display:flex;
+        flex-direction: column;
+        gap:2px;
+      }
+      .categoryTitle{
+        font-size: 1.5rem;
+        display : flex;
+        align-items: center;
+        gap:4px;
+        .svgs{
+          height:25px;
+        }
+      }
+      .categoryList{
+        list-style-type: none;
+      }
+    }
+  }
+  .price{
+    font-size:20px;
+    font-weight: 600;
+    display : flex;
+    align-items: center;
+        gap:4px;
+        .svgs{
+          height:20px;
+        }
+  }
+  .timeline{
+      width:100%;
+    .heading{
+      font-size:20px;
+      display : flex;
+        align-items: center;
+        gap:4px;
+        .svgs{
+          height:20px;
+        }
+    }
+    .date{
+      display: flex;
+      justify-content:space-between;
+      width: 320px;
+      max-width:100%;
+    span{
+      font-weight: 600;
+    }
+  }
+  }
+  .logoBox{
+    width: 100%;
+    .logo{
+      width:60%;
+      margin-left:-20px;
+      margin-bottom:-20px;
+    }
+    
+  }
+}

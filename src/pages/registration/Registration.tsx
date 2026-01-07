@@ -1,10 +1,13 @@
 import styles from "./Registration.module.scss";
+import Sidebar from "./component/Sidebar/Sidebar";
+import FormSection from "./component/FormSection/FormSection";
 
 function Registration() {
     return (
-        <>
-            <h1 className={styles.heading}>Hello World</h1>
-        </>
+        <div className={styles.page}>
+        <Sidebar></Sidebar>
+        <FormSection></FormSection>
+        </div>
     )
 }
 
