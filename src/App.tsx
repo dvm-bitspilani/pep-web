@@ -1,40 +1,22 @@
 import "./App.css";
 import Registration from "./pages/registration/Registration";
 import Contacts from "./pages/Contacts/Contacts";
-import { useState, useEffect } from "react";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  const routingTable = {
-    "/": Registration,
-    "/contact": Contacts,
-  };
-
-  const Router = () => {
-    const [currentUrl, setCurrentUrl] = useState<string>(
-      window.location.pathname
-    );
-
-    const handleUrlChange = () => {
-      setCurrentUrl(window.location.pathname);
-    };
-
-    useEffect(() => {
-      window.addEventListener("popstate", handleUrlChange);
-      return () => {
-        window.removeEventListener("popstate", handleUrlChange);
-      };
-    }, []);
-
-    const CurrentComponent =
-      routingTable[currentUrl as keyof typeof routingTable];
-    return CurrentComponent ? <CurrentComponent /> : <Registration />;
-  };
-
   return (
-    <>
-      <Router />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Registration />} />
+        <Route path="/contact" element={<Contacts />} />
+
+        {/* Optional fallback */}
+        <Route path="*" element={<Registration />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
