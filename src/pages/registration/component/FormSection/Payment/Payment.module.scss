@@ -40,6 +40,28 @@
   font-size: 1.2vw;
 }
 
+.failure {
+  background: #fee;
+  border-left: 0.4vw solid #f44;
+  padding: 1.2vw;
+  margin: 0 6vw;
+  border-radius: 0.8vw;
+  margin-bottom: 1.2vw;
+  color: #c33;
+  font-size: 1.2vw;
+}
+
+.pending {
+  background: #fff8e1;
+  border-left: 0.4vw solid #ff9800;
+  padding: 1.2vw;
+  margin: 0 6vw;
+  border-radius: 0.8vw;
+  margin-bottom: 1.2vw;
+  color: #e65100;
+  font-size: 1.2vw;
+}
+
 .info {
   background: #e8f4fd;
   border-left: 0.4vw solid #2196f3;
@@ -145,6 +167,14 @@
     font-size: 2.3vw;
   }
 
+  .failure {
+    font-size: 2.3vw;
+  }
+
+  .pending {
+    font-size: 2.3vw;
+  }
+
   .info {
     font-size: 2.3vw;
     margin-bottom: 2vw;
@@ -198,6 +228,20 @@
     font-size: 3.3vw;
     margin-bottom: 2vw;
     border-left: 0.8vw solid #4a4;
+    border-radius: 1.5vw;
+  }
+
+  .failure {
+    font-size: 3.3vw;
+    margin-bottom: 2vw;
+    border-left: 0.8vw solid #f44;
+    border-radius: 1.5vw;
+  }
+
+  .pending {
+    font-size: 3.3vw;
+    margin-bottom: 2vw;
+    border-left: 0.8vw solid #ff9800;
     border-radius: 1.5vw;
   }
 

@@ -1,17 +1,56 @@
 import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import styles from "./Payment.module.scss";
 import axios from "axios";
 import { API_BASE_URL } from "../../../../../config";
 
 const Payment: React.FC<{ initialEmail?: string }> = ({ initialEmail }) => {
+  const [searchParams] = useSearchParams();
   const [email, setEmail] = useState(initialEmail || "");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [paymentData, setPaymentData] = useState<any>(null);
+  const [paymentStatus, setPaymentStatus] = useState<{
+    type: 'success' | 'failure' | 'pending' | 'error' | null;
+    message: string;
+    orderId?: string;
+  }>({ type: null, message: '' });
 
   useEffect(() => {
     setEmail(initialEmail || "");
   }, [initialEmail]);
+
+  useEffect(() => {
+    // Check for payment status from URL parameters
+    const orderId = searchParams.get('order_id');
+    const status = searchParams.get('status');
+    const errorMessage = searchParams.get('message');
+
+    if (status === 'success' && orderId) {
+      setPaymentStatus({
+        type: 'success',
+        message: 'Payment completed successfully! You will receive a confirmation email shortly.',
+        orderId
+      });
+    } else if (status === 'failure' && orderId) {
+      setPaymentStatus({
+        type: 'failure',
+        message: 'Payment failed. Please try again or contact support if the issue persists.',
+        orderId
+      });
+    } else if (status === 'pending' && orderId) {
+      setPaymentStatus({
+        type: 'pending',
+        message: 'Payment is being processed. Please wait while we confirm the transaction.',
+        orderId
+      });
+    } else if (errorMessage) {
+      setPaymentStatus({
+        type: 'error',
+        message: `Payment error: ${errorMessage}`
+      });
+    }
+  }, [searchParams]);
 
   const handlePayment = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -77,7 +116,21 @@ const Payment: React.FC<{ initialEmail?: string }> = ({ initialEmail }) => {
   return (
     <div className={styles.container}>
       {error && <div className={styles.error}>{error}</div>}
-      {/* {success && <div className={styles.success}>{success}</div>} */}
+      {paymentStatus.type && (
+        <div className={
+          paymentStatus.type === 'success' ? styles.success :
+          paymentStatus.type === 'failure' ? styles.failure :
+          paymentStatus.type === 'pending' ? styles.pending :
+          styles.error
+        }>
+          {paymentStatus.orderId && (
+            <div style={{ marginBottom: '0.5vw', fontWeight: 'bold' }}>
+              Order ID: {paymentStatus.orderId}
+            </div>
+          )}
+          {paymentStatus.message}
+        </div>
+      )}
       {!paymentData ? (
         <>
           <div className={styles.info}>
