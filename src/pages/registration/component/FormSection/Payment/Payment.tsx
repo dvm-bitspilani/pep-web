@@ -81,7 +81,7 @@ const Payment: React.FC<{ initialEmail?: string }> = ({ initialEmail }) => {
       {!paymentData ? (
         <>
           <div className={styles.info}>
-            <strong>Registration Fee: ₹175</strong>
+            <strong>Registration Fee: ₹200</strong>
             <p>
               This is a one-time registration fee for PEP 2026.
             </p>
