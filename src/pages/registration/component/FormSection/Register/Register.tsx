@@ -78,6 +78,7 @@ const Register: React.FC<{ onSuccess: (email: string) => void }> = ({
           top: 0,
           behavior: "smooth",
         });
+        window.scrollTo({ top: 0, behavior: "smooth" });
         setLoading(false);
       });
   };
