@@ -37,7 +37,7 @@ background-repeat: none;
   color: black;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: "background" 0.2s ease;
   text-decoration:none;
 
   &:hover {
@@ -182,7 +182,7 @@ background-repeat: none;
   stroke: #ffffff;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .header{
     padding: 0px 24px;
   }
@@ -199,7 +199,7 @@ background-repeat: none;
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
   .header{
     padding: 0px 14px;
     .title img{

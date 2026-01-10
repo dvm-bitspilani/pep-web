@@ -1,186 +1,338 @@
-@use "../../../../global.scss" as *;
+@use "/src/global.scss" as *;
 
-
-.page{
- position: relative; 
-// &::before,
-// &::after {
-//   overflow:hidden;
-//   content: "";
-//   position: absolute;
-//   border-radius: 50%;
-//   background: rgba(255, 255, 255, 0.03);
-// }
-//
-// &::before {
-//   width: 300px;
-//   height: 300px;
-//   top: -150px;
-//   right: -150px;
-// }
-//
-// &::after {
-//   width: 300px;
-//   height: 300px;
-//   bottom: -120px;
-//   left: -120px;
-// }
-  background-image: linear-gradient(300deg, #4339cb,#305BE8 ,#4339cb);
+.page {
+  position: relative;
+  // &::before,
+  // &::after {
+  //   overflow:hidden;
+  //   content: "";
+  //   position: absolute;
+  //   border-radius: 50%;
+  //   background: rgba(255, 255, 255, 0.03);
+  // }
+  //
+  // &::before {
+  //   width: 300px;
+  //   height: 300px;
+  //   top: -150px;
+  //   right: -150px;
+  // }
+  //
+  // &::after {
+  //   width: 300px;
+  //   height: 300px;
+  //   bottom: -120px;
+  //   left: -120px;
+  // }
+  background-image: linear-gradient(300deg, #4339cb, #305be8, #4339cb);
   width: 35vw;
   max-height: 100vh;
   overflow: scroll;
   font-family: Roboto, Arial, sans-serif;
   color: white;
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px;
-  gap: 10px;
+  padding: 1.2vw;
+  gap: 1vw;
   scrollbar-width: none;
   -ms-overflow-style: none;
   &::-webkit-scrollbar {
     display: none;
   }
-  .topPage {
-  .heading{
-    width: 100%;
-    font-size: 3rem;
-    font-weight: 600;
-    padding-top: 10px;
-    font-family: $heading-font;
-  }
-  .dis{
-    font-size: 15px;
-    color: rgb(230, 230, 230);
-  }
-};
 
-  .Description{
+  .logoBox {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo {
+      width: 50%;
+    }
+
+    button {
+      padding: 0.8vw;
+      background: #f3f8fe;
+      font-size: 1vw;
+      font-weight: 600;
+      border: none;
+      border-radius: 0.6vw;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      color: black;
+      &:hover {
+        background-color: #e9e9e9;
+      }
+    }
+  }
+
+  .topPage {
+    .heading {
+      width: 100%;
+      font-size: 3vw;
+      font-weight: 600;
+      padding-top: 0.6vw;
+      font-family: $heading-font;
+    }
+    .dis {
+      font-size: 1vw;
+      color: rgb(230, 230, 230);
+    }
+  }
+
+  .Description {
     display: flex;
     flex-direction: column;
-    .paperCategories{
+    .paperCategories {
       display: grid;
-      
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      .category{
-        display:flex;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      gap: 2vw;
+      .category {
+        display: flex;
         flex-direction: column;
-        gap:2px;
+        gap: 2px;
       }
-      .categoryTitle{
-        font-size: 1.5rem;
-        display : flex;
+      .categoryTitle {
+        font-size: 2vw;
+        display: flex;
         align-items: center;
-        gap:4px;
-        .svgs{
-          height:25px;
+        gap: 4px;
+        .svgs {
+          height: 2vw;
         }
       }
-      .categoryList{
+      .categoryList {
+        font-size: 1vw;
         list-style-type: none;
       }
     }
   }
-  .price{
-    font-size:20px;
+  .price {
+    font-size: 2vw;
     font-weight: 600;
-    display : flex;
+    display: flex;
     align-items: center;
-        gap:4px;
-        .svgs{
-          height:20px;
-        }
-  }
-  .timeline{
-      width:100%;
-    .heading{
-      font-size:20px;
-      display : flex;
-      font-weight: 600;
-        align-items: center;
-        gap:4px;
-        .svgs{
-          height:20px;
-        }
-    }
-    .date{
-      display: flex;
-      justify-content:space-between;
-      width: 320px;
-      max-width:100%;
-    span{
-      font-weight: 600;
+    gap: 0.5vw;
+    .svgs {
+      height: 2vw;
     }
   }
-  }
-  .logoBox{
+  .timeline {
     width: 100%;
     display: flex;
-  justify-content: space-between;
-    align-items: center;
-    .logo{
-      width:50%;
+    flex-direction: column;
+    gap: 2px;
+
+    .heading {
+      font-size: 2vw;
+      display: flex;
+      font-weight: 600;
+      align-items: center;
+      gap: 4px;
+      .svgs {
+        height: 2vw;
+      }
     }
-
-    button {
-  margin-top: 10px;
-  padding: 14px;
-  background: #F3F8FE;
-  color: #2563eb;
-  font-size: 16px;
- font-weight: 600;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-
-  &:hover {
-    background: #e0e0e0;
+    .date {
+      display: flex;
+      justify-content: space-between;
+      width: 60%;
+      font-size: 1vw;
+      span {
+        font-weight: 600;
+      }
+    }
   }
 }
 
-    
-  }
+.bottom {
+  display: none;
 }
-
-.bottom{
-  display:none;
-}
-@media screen and (max-width: 900px){
-  .page{
+@media screen and (max-width: 900px) {
+  .page {
     height: fit-content;
     width: 100vw;
     flex-direction: column;
-    .Description{
-      display:none;
-    };
-    .logoBox{
-      display:none;
-    }
-  }
-  .bottom{
-      display:flex;
-      gap:0px;
-      .Description{
-        display: flex;
-        margin-top: 30px;
+    overflow-x: hidden;
+    padding: 0;
+
+    .logoBox {
+      height: 80px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .logo {
+        width: 250px;
       }
-      .logoBox{
-        display: flex;
-        .logo{
-          width: 70%;
+
+      button {
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: unset;
+      }
+    }
+    .topPage {
+      margin: 0 4vw;
+      .heading {
+        font-size: 4vw;
+      }
+      .dis {
+        font-size: 1.5vw;
+      }
+    }
+    .Description {
+      display: none;
+    }
+    .price {
+      margin: 0 4vw;
+      font-size: 2.4vw;
+      gap: 1vw;
+      .svgs {
+        height: 2.4vw;
+      }
+    }
+    .timeline {
+      margin: 0 4vw 1vw 4vw;
+
+      .heading {
+        font-size: 2.4vw;
+        .svgs {
+          height: 2.4vw;
         }
       }
-      .timeline{
-        display:none;
-      }
-      .price{
-        display:none;
-      }
-      .topPage{
-        display:none;
+      .date {
+        width: 90%;
+        font-size: 1.5vw;
       }
     }
+  }
+  .bottom {
+    display: flex;
+    gap: 0px;
+    margin-top: auto;
+
+    .logoBox {
+      display: none;
+    }
+    .timeline {
+      display: none;
+    }
+    .price {
+      display: none;
+    }
+    .topPage {
+      display: none;
+    }
+    .Description {
+      display: flex;
+      flex-direction: column;
+
+      .paperCategories {
+        margin: 1vw 4vw;
+
+        .category {
+          gap: 0.6vw;
+        }
+
+        .categoryTitle {
+          font-size: 2.4vw;
+          .svgs {
+            height: 2.4vw;
+          }
+        }
+        .categoryList {
+          font-size: 1.5vw;
+          li {
+            margin-bottom: 0.4vw;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .page {
+    .logoBox {
+      padding: 0px 14px;
+
+      .logo {
+        width: 200px;
+      }
+    }
+    .topPage {
+      margin: 0 4vw 3vw 4vw;
+      .heading {
+        font-size: 8vw;
+      }
+      .dis {
+        font-size: 3vw;
+      }
+    }
+    .price {
+      margin: 0 4vw 3vw 4vw;
+      font-size: 4vw;
+      .svgs {
+        height: 4vw;
+      }
+    }
+    .timeline {
+      margin: 0 4vw 3vw 4vw;
+
+      .heading {
+        font-size: 4vw;
+        .svgs {
+          height: 4vw;
+        }
+      }
+      .date {
+        width: 90%;
+        font-size: 3vw;
+      }
+    }
+  }
+  .bottom {
+    display: flex;
+    gap: 0px;
+    margin-top: auto;
+    .logoBox {
+      display: none;
+    }
+    .timeline {
+      display: none;
+    }
+    .price {
+      display: none;
+    }
+    .topPage {
+      display: none;
+    }
+    .Description {
+      display: flex;
+      flex-direction: column;
+
+      .paperCategories {
+        margin: 2vw 4vw;
+        row-gap: 4vw;
+
+        .category {
+          gap: 2vw;
+        }
+
+        .categoryTitle {
+          font-size: 4vw;
+          .svgs {
+            height: 4vw;
+          }
+        }
+        .categoryList {
+          font-size: 3vw;
+          li {
+            margin-bottom: 0.6vw;
+          }
+        }
+      }
+    }
+  }
 }

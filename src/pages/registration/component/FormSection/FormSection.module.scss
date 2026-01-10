@@ -1,10 +1,10 @@
-@use "../../../../global.scss" as *;
+@use "/src/global.scss" as *;
 
-.container{
+.container {
   max-height: 100vh;
-  overflow:scroll;
-  width: 60vw;
-  align-self: center;
+  width: 65vw;
+  display: flex;
+  flex-direction: column;
   scrollbar-width: none;
   -ms-overflow-style: none;
   &::-webkit-scrollbar {
@@ -12,69 +12,67 @@
   }
 }
 
-.paperForm {
-  padding: 50px;
-  background: #f7faff;
-  border-radius: 14px;
-  height:fit-content;
-}
-
-.formGroup {
+.tabs {
   display: flex;
-  flex-direction: column;
-  margin-bottom: 18px;
-
-  label {
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 6px;
-    color: #1f2937;
-    font-family: $primary-font;
-  }
-
-  input,
-  select {
-    padding: 12px 14px;
-    border-radius: 10px;
-    border: 1px solid #d1d9e6;
-    font-size: 14px;
-    outline: none;
-    transition: border 0.2s ease;
-
-    &:focus {
-      border-color: #2563eb;
-    }
-  }
+  gap: 0.5vw;
+  margin: 2vw 6vw;
 }
 
-.required {
-  color: #dc2626;
-  margin-left: 2px;
-}
-
-.registerButton {
-  width: 100%;
-  margin-top: 10px;
-  padding: 14px;
-  background: #2563eb;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 600;
+.tab {
+  flex: 1;
+  padding: 0.6vw;
+  background: #dbdbdb;
   border: none;
-  border-radius: 12px;
+  border-radius: 0.4vw;
   cursor: pointer;
-  transition: background 0.2s ease;
-
-  &:hover {
-    background: #1e4fd8;
-  }
+  font-family: $primary-font;
+  width: 100%;
+  color: white;
+  font-size: 1.2vw;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.tab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(149, 168, 252, 0.4);
 }
 
-@media screen and (max-width: 900px){
-  .container{
+.tab.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    height: 100%;
     max-height: fit-content;
+    width: 100vw;
+    margin-bottom: 1vw;
+  }
+  .tabs {
+    gap: 1vw;
+    margin: 2vw auto;
+    width: 40vw;
+  }
+
+  .tab {
+    padding: 0.6vw;
+    font-size: 2.3vw;
+  }
+}
+@media screen and (max-width: 500px) {
+  .container {
     height: fit-content;
     width: 100vw;
-    flex-direction: column;
+  }
+  .tabs {
+    gap: 2vw;
+    width: 60vw;
+    margin: 3vw auto;
+  }
+
+  .tab {
+    padding: 1vw;
+    font-size: 4vw;
   }
 }

@@ -1,0 +1,173 @@
+@use "/src/global.scss" as *;
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 60vw;
+  align-self: center;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.paperForm {
+  padding: 0 2vw 2vw 2vw;
+  background: #f7faff;
+  height: fit-content;
+}
+
+.error {
+  background: #fee;
+  border-left: 0.4vw solid #f44;
+  padding: 1.2vw;
+  margin: 0 6vw;
+  border-radius: 0.8vw;
+  margin-bottom: 1.2vw;
+  color: #c33;
+  font-size: 1.2vw;
+}
+
+.success {
+  background: #efe;
+  border-left: 0.4vw solid #4a4;
+  padding: 1.2vw;
+  margin: 0 6vw;
+  border-radius: 0.8vw;
+  margin-bottom: 1.2vw;
+  color: #363;
+  font-size: 1.2vw;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.3vw;
+
+  label {
+    font-size: 1.2vw;
+    font-weight: 500;
+    margin-bottom: 0.6vw;
+    color: #1f2937;
+    font-family: $primary-font;
+  }
+
+  input,
+  select {
+    padding: 0.6vw 0.7vw;
+    border-radius: 0.4vw;
+    border: 1px solid #d1d9e6;
+    font-size: 1vw;
+    outline: none;
+    transition: border 0.2s ease;
+
+    &:focus {
+      border-color: #2563eb;
+    }
+  }
+}
+
+.required {
+  color: #dc2626;
+  margin-left: 2px;
+}
+
+.registerButton {
+  width: 100%;
+  margin-top: 1vw;
+  padding: 1vw;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 1.2vw;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.8vw;
+  cursor: pointer;
+  transition: "background" 0.2s ease;
+
+  &:hover {
+    background: #1e4fd8;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    height: 100%;
+    max-height: fit-content;
+    width: 100vw;
+  }
+  .paperForm {
+    padding: 0 3vw 2vw 3vw;
+  }
+
+  .error {
+    font-size: 2.3vw;
+  }
+
+  .success {
+    font-size: 2.3vw;
+  }
+
+  .formGroup {
+    label {
+      font-size: 2.3vw;
+    }
+
+    input,
+    select {
+      padding: 1.5vw 1.7vw;
+      border-radius: 0.8vw;
+      font-size: 2vw;
+    }
+  }
+
+  .registerButton {
+    margin-top: 1vw;
+    padding: 1vw;
+    font-size: 2vw;
+  }
+}
+@media screen and (max-width: 500px) {
+  .paperForm {
+    padding: 0 5vw 2vw 5vw;
+  }
+
+  .error {
+    font-size: 3.3vw;
+    margin-bottom: 2vw;
+    border-left: 0.8vw solid #f44;
+    border-radius: 1.5vw;
+  }
+
+  .success {
+    font-size: 3.3vw;
+    margin-bottom: 2vw;
+    border-left: 0.8vw solid #4a4;
+    border-radius: 1.5vw;
+  }
+
+  .formGroup {
+    margin-bottom: 2.5vw;
+    label {
+      font-size: 3.5vw;
+      margin-bottom: 2vw;
+    }
+
+    input,
+    select {
+      padding: 2vw 2.3vw;
+      font-size: 3vw;
+    }
+  }
+
+  .registerButton {
+    padding: 2vw;
+    font-size: 3vw;
+  }
+}

@@ -14,8 +14,11 @@ interface AppProps {
 const Sidebar: React.FC<AppProps> = ({ bt = false }) => {
     return (
         <div className={`${styles.page} ${bt ? styles.bottom : ""}`}>
+            <div className={styles.logoBox}>
+                <img src={apoogee} className={styles.logo} alt="" />
+                <Link to="/contact"><button>Contact Us</button></Link>
+            </div>
             <div className={styles.topPage}>
-
                 <div className={styles.heading}>Paper Presentation</div>
                 <div className={styles.dis}>
                     The Paper Presentation event is India’s oldest undergraduate paper presentation competition. As an event with a legacy spanning more than 40 years, the competition attracts participants from premier institutes in India, including IITs, IIMs, DUs, IISERs, etc. With cash prizes amounting to more than 1 lakhs, the previous editions have been a huge success, and we would like your support in growing this event further.
@@ -74,9 +77,7 @@ const Sidebar: React.FC<AppProps> = ({ bt = false }) => {
                 </div>
             </div>
             <div className={styles.price}>
-                <div className={styles.logo}>
-                    <img src={price} alt="" className={styles.svgs} />
-                </div>
+                <img src={price} alt="" className={styles.svgs} />
                 Price : ₹9000
             </div>
             <div className={styles.timeline}>
@@ -89,11 +90,7 @@ const Sidebar: React.FC<AppProps> = ({ bt = false }) => {
                 <div className={styles.date}>Abstration Submision: <span>18th Feb</span></div>
                 <div className={styles.date}>Paper Submission: <span>20th March</span></div>
                 <div className={styles.date}>Paper Presentation - APOGEE: <span>28th March</span></div>
-            </div>
-            <div className={styles.logoBox}>
-                <img src={apoogee} className={styles.logo} alt="" />
-                <Link to="/contact"><button>Contact Us</button></Link>
-            </div>
+            </div>            
         </div>
     )
 }

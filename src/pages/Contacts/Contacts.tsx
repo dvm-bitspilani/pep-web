@@ -11,7 +11,7 @@ export default function Contacts(): React.ReactElement {
                 <h1 className={styles.title}>
                     <img src={apoogee} alt="Contact Icon" />
                 </h1>
-                <Link to="/">
+                <Link to="/" style={{textDecoration: "none"}}>
                     <div className={styles.registerBtn}>
                         Register
                     </div>
