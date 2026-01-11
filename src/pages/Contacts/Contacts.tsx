@@ -1,16 +1,16 @@
+import { Link } from "react-router";
+import apoogee from "../../../public/svgs/apogee26logo.svg";
+import { contacts } from "./contactList";
 import styles from "./Contacts.module.scss";
 import contactIcon from "/Contacts/contactIcon.svg";
-import { contacts } from "./contactList";
-import apoogee from "../../../public/svgs/apogee26logo.svg"
-import { Link } from "react-router";
 
 export default function Contacts(): React.ReactElement {
     return (
         <div className={styles.container}>
             <header className={styles.header}>
-                <h1 className={styles.title}>
-                    <img src={apoogee} alt="Contact Icon" />
-                </h1>
+                <div className={styles.title}>
+                    <img src={apoogee} alt="APOGEE Logo" />
+                </div>
                 <Link to="/" style={{textDecoration: "none"}}>
                     <div className={styles.registerBtn}>
                         Register
@@ -19,18 +19,27 @@ export default function Contacts(): React.ReactElement {
             </header>
 
             <main className={styles.main}>
-            <div className={styles.heading}>
-            <img src={contactIcon} alt="" className={styles.contactIcon} />
-            Contact Us
-            </div>
+                <div className={styles.heading}>
+                    <img src={contactIcon} alt="" className={styles.contactIcon} />
+                    <span>Contact Us</span>
+                </div>
+                
                 <div className={styles.box}>
                     {contacts.map((contact) => (
                         <div key={contact.id} className={styles.card}>
                             <div className={styles.info}>
                                 <h3 className={styles.name}>{contact.name}</h3>
+                                
+                                {/* Visible on Desktop */}
+                                <div className={styles.detailsDesktop}>
+                                    <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                                    <span>|</span>
+                                    <a href={`tel:${contact.phone}`}>{contact.phone}</a>
+                                </div>
                             </div>
 
-                            <div className={styles.actions}>
+                            {/* Visible on Mobile */}
+                            <div className={styles.actionsMobile}>
                                 <a
                                     href={`tel:${contact.phone}`}
                                     className={styles.iconBtn}
