@@ -113,7 +113,7 @@ const Sidebar: React.FC<AppProps> = ({ bt = false }) => {
       <motion.div className={styles.footerInfo} variants={itemVariants}>
         <div className={styles.prizeTag}>
            <img src={price} alt="" className={styles.icon} style={{ filter: 'invert(1)' }} />
-           <span>₹9000 / Category</span>
+           <span>Prize Pool: ₹9000 / Category</span>
         </div>
 
         <div className={styles.timeline}>
@@ -123,15 +123,15 @@ const Sidebar: React.FC<AppProps> = ({ bt = false }) => {
           </div>
           <div className={styles.dates}>
              <div className={styles.dateRow}>
-                <span>Abstract</span>
+                <span>Abstraction Submission</span>
                 <span className={styles.dateVal}>18th Feb</span>
              </div>
              <div className={styles.dateRow}>
-                <span>Paper</span>
+                <span>Paper Submission</span>
                 <span className={styles.dateVal}>20th Mar</span>
              </div>
              <div className={styles.dateRow}>
-                <span>Presentation</span>
+                <span>Paper Presentation - APOGEE</span>
                 <span className={styles.dateVal}>28th Mar</span>
              </div>
           </div>

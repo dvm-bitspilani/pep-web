@@ -9,22 +9,29 @@
   align-items: center;
   padding: 2rem;
   
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  /* Custom Scrollbar */
   &::-webkit-scrollbar {
-    display: none;
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--primary-neon);
+    border-radius: 4px;
   }
 }
 
 .glassCard {
   width: 100%;
-  max-width: 800px; /* Limit width for cleaner look */
+  max-width: 800px;
   height: auto;
   min-height: 600px;
   max-height: 90vh;
-  overflow-y: auto;
+  overflow: hidden; /* No scroll here */
   
-  background: rgba(255, 255, 255, 0.05); /* Glass base */
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -34,10 +41,6 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
-
-  /* Hide scrollbar inside the card too */
-  scrollbar-width: none;
-  &::-webkit-scrollbar { display: none; }
 }
 
 .tabs {
@@ -81,6 +84,20 @@
 .contentContainer {
   flex: 1;
   overflow-y: auto;
+  padding-right: 5px; /* Spacing for scrollbar */
+  
+  /* Custom Scrollbar */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--primary-neon);
+    border-radius: 4px;
+  }
 }
 
 /* Responsive */

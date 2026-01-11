@@ -31,9 +31,8 @@
 
     button {
       padding: 0.8rem 1.5rem;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
+      background: transparent;
+      border: 1px solid var(--primary-neon);
       color: var(--primary-neon);
       font-family: var(--font-heading);
       text-transform: uppercase;
@@ -42,11 +41,28 @@
       cursor: pointer;
       font-size: 0.9rem;
       transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0;
+        width: 0%;
+        height: 100%;
+        background: var(--primary-neon);
+        z-index: -1;
+        transition: width 0.3s ease;
+      }
 
       &:hover {
-        background: var(--primary-neon);
         color: #000;
         box-shadow: 0 0 15px var(--primary-neon);
+        
+        &::before {
+          width: 100%;
+        }
       }
     }
   }
@@ -54,15 +70,19 @@
   .topPage {
     .heading {
       font-family: var(--font-heading);
-      font-size: 3rem;
+      font-size: clamp(2rem, 2.5vw, 3.5rem); /* Large but fitting */
       font-weight: 700;
-      line-height: 1;
+      line-height: 1.1;
       margin-bottom: 1rem;
       background: linear-gradient(90deg, #fff, var(--primary-neon));
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
       text-transform: uppercase;
+      white-space: normal; /* Allow wrapping */
+      word-break: normal; /* Do not break inside words */
+      overflow-wrap: normal;
+      max-width: 100%;
     }
 
     .dis {
