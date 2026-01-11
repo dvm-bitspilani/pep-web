@@ -1,113 +1,143 @@
-import styles from "./Sidebar.module.scss";
-import apoogee from "../../../../../public/svgs/apogee26logo.svg";
-import calender from "../../../../../public/calender.png";
-import misc from "../../../../../public/misc.png";
-import eng from "../../../../../public/eng.png";
-import science from "../../../../../public/science.png";
-import price from "../../../../../public/price.png";
+import { motion } from "framer-motion";
+import { Atom, Briefcase, Calendar, Cog, CreditCard } from "lucide-react";
 import { Link } from "react-router-dom";
+import price from "../../../../../public/price.png";
+import apoogee from "../../../../../public/svgs/apogee26logo.svg";
+import styles from "./Sidebar.module.scss";
 
 interface AppProps {
-  bt?: boolean; // The '?' makes it optional
+  bt?: boolean;
 }
 
 const Sidebar: React.FC<AppProps> = ({ bt = false }) => {
+  const containerVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      transition: { 
+        duration: 0.6, 
+        staggerChildren: 0.1 
+      } 
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
   return (
-    <div className={`${styles.page} ${bt ? styles.bottom : ""}`}>
+    <motion.div 
+      className={`${styles.page} ${bt ? styles.bottom : ""}`}
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
       <div className={styles.logoBox}>
-        <h1>
-          <img src={apoogee} className={styles.logo} alt="" />
-        </h1>
+        <motion.div className={styles.logoWrapper} whileHover={{ scale: 1.05 }}>
+           <img src={apoogee} className={styles.logo} alt="APOGEE Logo" />
+        </motion.div>
+        
         <Link to="/contact">
-          <button>Contact Us</button>
+          <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            Contact Us
+          </motion.button>
         </Link>
       </div>
-      <div className={styles.topPage}>
-        <div className={styles.heading}>Paper Presentation</div>
+
+      <motion.div className={styles.topPage} variants={itemVariants}>
+        <h1 className={styles.heading}>PAPER PRESENTATION</h1>
         <div className={styles.dis}>
-          The Paper Presentation event is India’s oldest undergraduate paper
-          presentation competition. As an event with a legacy spanning more than
-          40 years, the competition attracts participants from premier
-          institutes in India, including IITs, IIMs, DUs, IISERs, etc.{" "}
-          <strong style={{ color: "#00ffe6" }}>
-            With cash prizes amounting to more than 1 lakhs,
-          </strong>{" "}
-          the previous editions have been a huge success, and we would like your
-          support in growing this event further. Paper needs to be submitted in
-          IEEE format only.
+          <p>
+            India’s oldest undergraduate paper presentation competition. 
+            Legacy of 40+ years. Attracting premier intellects from IITs, IIMs, and more.
+          </p>
+          <div className={styles.highlight}>
+            <CreditCard className={styles.icon} />
+            <strong>Prize Pool: ₹1 Lakh+</strong>
+          </div>
+          <p className={styles.small}>IEEE Format Required.</p>
         </div>
-      </div>
-      <div className={styles.Description}>
+      </motion.div>
+
+      <motion.div className={styles.description} variants={itemVariants}>
         <div className={styles.paperCategories}>
-          <div className={styles.category}>
-            <h2 className={styles.categoryTitle}>
-              <div className={styles.logo}>
-                <img src={eng} alt="" className={styles.svgs} />
-              </div>
-              Engineering
-            </h2>
+          {/* Engineering */}
+          <motion.div className={styles.category} whileHover={{ y: -5, backgroundColor: "rgba(255,255,255,0.05)" }}>
+            <div className={styles.categoryHeader}>
+               {/* Using Lucide icons or existing images with filter */}
+               {/* <img src={eng} alt="" className={styles.catIcon} />  Alternatively use lucide */}
+               <Cog className={styles.lucideIcon} color="#00f3ff" />
+               <h2>Engineering</h2>
+            </div>
             <ul className={styles.categoryList}>
               <li>Chemical</li>
               <li>Civil</li>
               <li>Computer Science</li>
-              <li>Electrical and Electronics</li>
-              <li>Mechanical and Manufacturing</li>
+              <li>EEE/Instru</li>
+              <li>Mech/Mfg</li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div className={styles.category}>
-            <h2 className={styles.categoryTitle}>
-              <div className={styles.logo}>
-                <img src={science} className={styles.svgs} alt="" />
-              </div>
-              Science
-            </h2>
+          {/* Science */}
+          <motion.div className={styles.category} whileHover={{ y: -5, backgroundColor: "rgba(255,255,255,0.05)" }}>
+             <div className={styles.categoryHeader}>
+               <Atom className={styles.lucideIcon} color="#bd00ff" />
+               <h2>Science</h2>
+            </div>
             <ul className={styles.categoryList}>
               <li>Biological Sciences</li>
               <li>Chemistry</li>
               <li>Mathematics</li>
               <li>Physics</li>
             </ul>
-          </div>
+          </motion.div>
 
-          <div className={styles.category}>
-            <h2 className={styles.categoryTitle}>
-              <div className={styles.logo}>
-                <img src={misc} alt="" className={styles.svgs} />
-              </div>
-              Miscellaneous
-            </h2>
+          {/* Misc */}
+          <motion.div className={styles.category} whileHover={{ y: -5, backgroundColor: "rgba(255,255,255,0.05)" }}>
+            <div className={styles.categoryHeader}>
+               <Briefcase className={styles.lucideIcon} color="#00ff9d" />
+               <h2>Misc</h2>
+            </div>
             <ul className={styles.categoryList}>
               <li>Humanities</li>
               <li>Economics & Finance</li>
-              <li>Entrepreneurship & Management</li>
+              <li>Entrepreneurship/Mgmt</li>
               <li>Pharmacy</li>
             </ul>
+          </motion.div>
+        </div>
+      </motion.div>
+
+      <motion.div className={styles.footerInfo} variants={itemVariants}>
+        <div className={styles.prizeTag}>
+           <img src={price} alt="" className={styles.icon} style={{ filter: 'invert(1)' }} />
+           <span>₹9000 / Category</span>
+        </div>
+
+        <div className={styles.timeline}>
+          <div className={styles.timelineHeader}>
+            <Calendar className={styles.icon} />
+            <h3>Deadlines</h3>
+          </div>
+          <div className={styles.dates}>
+             <div className={styles.dateRow}>
+                <span>Abstract</span>
+                <span className={styles.dateVal}>18th Feb</span>
+             </div>
+             <div className={styles.dateRow}>
+                <span>Paper</span>
+                <span className={styles.dateVal}>20th Mar</span>
+             </div>
+             <div className={styles.dateRow}>
+                <span>Presentation</span>
+                <span className={styles.dateVal}>28th Mar</span>
+             </div>
           </div>
         </div>
-      </div>
-      <div className={styles.price}>
-        <img src={price} alt="" className={styles.svgs} />
-        Prize Pool of ₹9000 per category
-      </div>
-      <div className={styles.timeline}>
-        <div className={styles.heading}>
-          <div className={styles.logo}>
-            <img src={calender} alt="" className={styles.svgs} />
-          </div>
-          Deadlines
-        </div>
-        <div className={styles.date}>
-          Abstration Submision: <span>18th Feb</span>
-        </div>
-        <div className={styles.date}>
-          Paper Submission: <span>20th March</span>
-        </div>
-        <div className={styles.date}>
-          Paper Presentation - APOGEE: <span>28th March</span>
-        </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

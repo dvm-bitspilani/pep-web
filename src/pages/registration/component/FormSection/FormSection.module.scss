@@ -1,10 +1,14 @@
 @use "/src/global.scss" as *;
 
 .container {
-  max-height: 100vh;
+  height: 100vh;
   width: 65vw;
   display: flex;
   flex-direction: column;
+  justify-content: center; /* Center the glass card */
+  align-items: center;
+  padding: 2rem;
+  
   scrollbar-width: none;
   -ms-overflow-style: none;
   &::-webkit-scrollbar {
@@ -12,67 +16,95 @@
   }
 }
 
+.glassCard {
+  width: 100%;
+  max-width: 800px; /* Limit width for cleaner look */
+  height: auto;
+  min-height: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  
+  background: rgba(255, 255, 255, 0.05); /* Glass base */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  /* Hide scrollbar inside the card too */
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
 .tabs {
   display: flex;
-  gap: 0.5vw;
-  margin: 2vw 6vw;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+  background: rgba(0,0,0,0.2);
+  padding: 0.5rem;
+  border-radius: 12px;
 }
 
 .tab {
   flex: 1;
-  padding: 0.6vw;
-  background: #dbdbdb;
+  position: relative;
   border: none;
-  border-radius: 0.4vw;
+  background: transparent;
+  padding: 0.8rem;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--text-muted);
   cursor: pointer;
-  font-family: $primary-font;
-  width: 100%;
-  color: white;
-  font-size: 1.2vw;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.tab:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(149, 168, 252, 0.4);
+  z-index: 1; /* Above indicator */
+  transition: color 0.3s ease;
+  
+  &.active {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+  }
+
+  .activeIndicator {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--secondary-neon) 0%, var(--primary-neon) 100%);
+    border-radius: 8px;
+    z-index: -1; /* Behind text */
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+  }
 }
 
-.tab.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+.contentContainer {
+  flex: 1;
+  overflow-y: auto;
 }
 
+/* Responsive */
 @media screen and (max-width: 900px) {
   .container {
-    height: 100%;
-    max-height: fit-content;
     width: 100vw;
-    margin-bottom: 1vw;
+    height: auto;
+    padding: 1rem;
+    padding-bottom: 5rem; /* space for potential bottom nav */
   }
-  .tabs {
-    gap: 1vw;
-    margin: 2vw auto;
-    width: 40vw;
+  
+  .glassCard {
+    max-height: none;
+    min-height: auto;
+    border-radius: 12px;
   }
 
-  .tab {
-    padding: 0.6vw;
-    font-size: 2.3vw;
-  }
-}
-@media screen and (max-width: 500px) {
-  .container {
-    height: fit-content;
-    width: 100vw;
-  }
   .tabs {
-    gap: 2vw;
-    width: 60vw;
-    margin: 3vw auto;
+    flex-direction: row;
+    gap: 0.5rem;
   }
-
+  
   .tab {
-    padding: 1vw;
-    font-size: 4vw;
+    font-size: 1rem;
   }
 }
+
