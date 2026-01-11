@@ -111,9 +111,15 @@ const Sidebar: React.FC<AppProps> = ({ bt = false }) => {
       </motion.div>
 
       <motion.div className={styles.footerInfo} variants={itemVariants}>
-        <div className={styles.prizeTag}>
-           <img src={price} alt="" className={styles.icon} style={{ filter: 'invert(1)' }} />
-           <span>Prize Pool: ₹9000 / Category</span>
+        <div className={styles.prizeCard}>
+           <div className={styles.prizeHeader}>
+             <img src={price} alt="" className={styles.icon} style={{ filter: 'invert(1)' }} />
+             <span>Prize Pool</span>
+           </div>
+           <div className={styles.prizeAmount}>
+            ₹9000
+            <span className={styles.prizeSub}>/ Category</span>
+           </div>
         </div>
 
         <div className={styles.timeline}>

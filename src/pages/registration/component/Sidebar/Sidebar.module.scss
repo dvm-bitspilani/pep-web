@@ -12,11 +12,20 @@
   gap: 2rem;
   background: transparent;
 
-  /* Scrollbar hidding */
-  scrollbar-width: none; 
-  -ms-overflow-style: none;
+  /* Custom Scrollbar for Affordance */
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-neon) rgba(255, 255, 255, 0.05);
+
   &::-webkit-scrollbar {
-    display: none;
+    width: 6px;
+    display: block;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--primary-neon);
+    border-radius: 4px;
   }
 
   .logoBox {
@@ -174,16 +183,53 @@
     flex-direction: column;
     gap: 1.5rem;
 
-    .prizeTag {
+    .prizeCard {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-left: 4px solid var(--secondary-neon);
+      border-radius: 12px;
+      padding: 1.2rem;
       display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-family: var(--font-heading);
-      font-size: 1.2rem;
-      color: var(--text-main);
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
       
-      .icon {
-        height: 1.5rem;
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        border-color: var(--secondary-neon);
+      }
+
+      .prizeHeader {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-family: var(--font-body);
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        .icon {
+          height: 1.2rem;
+          width: auto;
+          opacity: 0.8;
+        }
+      }
+
+      .prizeAmount {
+        font-family: var(--font-heading);
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: white;
+        line-height: 1;
+        
+        .prizeSub {
+          font-size: 1rem;
+          color: var(--text-muted);
+          font-weight: 400;
+          margin-left: 0.5rem;
+        }
       }
     }
 
