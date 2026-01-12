@@ -1,7 +1,7 @@
 @use "/src/global.scss" as *;
 
 .container {
-  height: 100vh;
+  // height: 100vh;
   width: 65vw;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,7 @@
   width: 100%;
   max-width: 800px;
   height: auto;
-  min-height: 600px;
+  // min-height: 600px;
   max-height: 90vh;
   overflow: hidden; /* No scroll here */
   
@@ -49,7 +49,7 @@
   margin-bottom: 2rem;
   position: relative;
   background: rgba(0,0,0,0.2);
-  padding: 0.5rem;
+  padding: 1rem;
   border-radius: 12px;
 }
 
