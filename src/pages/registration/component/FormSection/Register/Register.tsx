@@ -203,7 +203,7 @@ const Register: React.FC<{ onSuccess: (email: string) => void }> = ({
 
         <div className={styles.formGroup}>
           <label>
-            Google Drive Link <span className={styles.required}>*</span>
+            Google Drive Link of the Paper <span className={styles.required}>*</span>
           </label>
           <input
             type="url"
