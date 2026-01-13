@@ -1,7 +1,7 @@
-import React, { useState, useRef } from "react";
-import styles from "./Register.module.scss";
 import axios from "axios";
+import React, { useRef, useState } from "react";
 import { API_BASE_URL } from "../../../../../config";
+import styles from "./Register.module.scss";
 
 const CATEGORY_OPTIONS = [
   "CS/IT",
@@ -203,7 +203,7 @@ const Register: React.FC<{ onSuccess: (email: string) => void }> = ({
 
         <div className={styles.formGroup}>
           <label>
-            Google Drive Link of the Paper <span className={styles.required}>*</span>
+            Google Drive Link of the Abstract <span className={styles.required}>*</span>
           </label>
           <input
             type="url"

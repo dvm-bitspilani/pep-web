@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
-import styles from "./Payment.module.scss";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { API_BASE_URL } from "../../../../../config";
+import styles from "./Payment.module.scss";
 
 const Payment: React.FC<{ initialEmail?: string }> = ({ initialEmail }) => {
   const [searchParams] = useSearchParams();
@@ -134,9 +134,9 @@ const Payment: React.FC<{ initialEmail?: string }> = ({ initialEmail }) => {
       {!paymentData ? (
         <>
           <div className={styles.info}>
-            <strong>Registration Fee: ₹200</strong>
+            <strong>Early Bird Registration Fee: ₹200 (until 5th Feb)</strong>
             <p>
-              This is a one-time registration fee for PEP 2026.
+              Regular Registration Fee: ₹250 (after 5th Feb). This is a one-time registration fee for Paper Presentation Event 2026.
             </p>
           </div>
           <form className={styles.paperForm} onSubmit={handlePayment}>
