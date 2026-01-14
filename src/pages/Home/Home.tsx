@@ -170,7 +170,7 @@ const Home: React.FC = () => {
                         { title: "Early Bird Registration Ends", date: "5th Feb" },
                         { title: "Abstract Submission Deadline", date: "20th Feb" },
                         { title: "Paper Submission Deadline", date: "5th Mar" },
-                        { title: "APOGEE 2026", date: "28th Mar" }
+                        { title: "APOGEE 2026", date: "TBA" }
                     ].map((item, index) => (
                         <motion.div 
                             key={index} 
