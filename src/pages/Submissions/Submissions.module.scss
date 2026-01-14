@@ -13,7 +13,7 @@
   h1 {
     font-family: var(--font-heading);
     font-size: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     background: linear-gradient(90deg, #fff, var(--primary-neon));
     -webkit-background-clip: text;
     background-clip: text;
@@ -23,9 +23,38 @@
   }
 }
 
+.submissionsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4rem;
+  width: 100%;
+  max-width: 1400px;
+  z-index: 2;
+}
+
+.submissionColumn {
+  flex: 1;
+  min-width: 350px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+    text-align: center;
+  }
+}
+
 .formContainer {
   width: 100%;
-  max-width: 600px;
+  // max-width is handled by submissionColumn
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -35,6 +64,7 @@
   flex-direction: column;
   gap: 1.5rem;
   transition: all 0.3s ease;
+  height: 100%; // Make them equal height if possible
 
   &:hover {
     border-color: rgba(255, 255, 255, 0.2);
@@ -80,11 +110,18 @@
   padding: 3rem;
   color: var(--text-muted);
   font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
   
   h2 {
     color: #ef4444;
     font-family: var(--font-heading);
     margin-bottom: 1rem;
+    text-shadow: none;
+    font-size: 1.8rem;
   }
 }
 
@@ -133,7 +170,7 @@
 
 .submitButton {
   width: 100%;
-  margin-top: 1rem;
+  margin-top: auto; // Push to bottom if flex container stretches
   padding: 1rem;
   background: linear-gradient(90deg, var(--secondary-neon) 0%, #764ba2 100%);
   color: #fff;
@@ -168,7 +205,15 @@
       font-size: 2.5rem;
     }
   }
+
+  .submissionsGrid {
+    gap: 2rem;
+  }
   
+  .submissionColumn {
+    min-width: 100%;
+  }
+
   .formContainer {
     padding: 1.5rem;
   }
