@@ -18,10 +18,96 @@ const staggerContainer = {
 const Home: React.FC = () => {
     // FAQ Data
     const faqs = [
-        { q: "Who can participate?", a: "Undergraduate students from any recognized college or university can participate." },
-        { q: "Is it a team event?", a: "Yes, you can participate individually or in a team of up to 4 members." },
-        { q: "What is the registration fee?", a: "Early bird fee is ₹200 (until 5th Feb). Regular fee is ₹250." },
-        { q: "Will I get a certificate?", a: "Yes, all participants who submit a paper will receive a certificate of participation." }
+        { 
+            q: "Who can participate in the Paper Presentation competition?", 
+            a: "Undergraduate students from any college or university across India are welcome to participate." 
+        },
+        { 
+            q: "Can I participate individually or as a team?", 
+            a: "You can participate individually or as a team of up to x members (needs to be specified). All members must be undergraduate students." 
+        },
+        { 
+            q: "What are the paper categories?", 
+            a: (
+                <>
+                    <p>Submissions are invited under all academic departments of BITS Pilani, including:</p>
+                    <ul style={{ paddingLeft: '20px', marginTop: '10px', listStyleType: 'disc' }}>
+                        <li>Biological Sciences</li>
+                        <li>Chemical Engineering</li>
+                        <li>Chemistry</li>
+                        <li>Civil Engineering</li>
+                        <li>Computer Science</li>
+                        <li>Economics</li>
+                        <li>Electrical & Electronics Engineering</li>
+                        <li>Humanities and Social Sciences</li>
+                        <li>Mechanical Engineering</li>
+                        <li>Mathematics</li>
+                        <li>Physics</li>
+                        <li>Pharmacy</li>
+                    </ul>
+                    <p style={{ marginTop: '10px', fontStyle: 'italic', fontSize: '0.9em' }}>
+                        (Participants can select the most relevant category for their work while submitting.)
+                    </p>
+                </>
+            )
+        },
+        { 
+            q: "What kind of papers can be submitted?", 
+            a: "You may submit original research papers, review papers, design projects, or case studies. The work must be your own and should not have been published elsewhere." 
+        },
+        { 
+            q: "How do I register and submit my paper?", 
+            a: "Registration and submission links will be available on the official PEP website." 
+        },
+        { 
+            q: "What is the judging process like?", 
+            a: (
+                <>
+                    <p>Submissions are evaluated by BITS Pilani faculty members. Papers are judged based on:</p>
+                    <ul style={{ paddingLeft: '20px', marginTop: '10px', listStyleType: 'disc' }}>
+                        <li>Originality and relevance of research</li>
+                        <li>Clarity of objectives and methodology</li>
+                        <li>Quality of analysis and results</li>
+                        <li>Presentation skills and ability to answer questions</li>
+                    </ul>
+                </>
+            )
+        },
+        { 
+            q: "What are the prizes?", 
+            a: "Exciting cash prizes and certificates of excellence will be awarded to the best papers in each category." 
+        },
+        { 
+            q: "Do I have to be present at BITS Pilani to present?", 
+            a: "No, BITS Pilani professors will evaluate all submissions online." 
+        },
+        { 
+            q: "Can I submit a paper I worked on as part of a course or internship?", 
+            a: "Yes — as long as the work is your own and properly credited. Please make sure to mention any collaborations or acknowledgments in your paper." 
+        },
+        { 
+            q: "Is there a registration fee?", 
+            a: "Details regarding registration fees (if applicable) will be updated on the official website." 
+        },
+        { 
+            q: "Will participants receive certificates?", 
+            a: "Yes, all participants who successfully present their papers will receive participation certificates." 
+        },
+        { 
+            q: "Who can I contact for queries?", 
+            a: (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    <div>
+                        <strong>Nitya Agarwal:</strong> +91 98737 77349<br/>
+                        <a href="mailto:f20240749@pilani.bits-pilani.ac.in" style={{ color: 'inherit' }}>f20240749@pilani.bits-pilani.ac.in</a>
+                    </div>
+                    <div>
+                        <strong>Anika Jha:</strong> +91 99007 24951<br/>
+                        <a href="mailto:20240906@pilani.bits-pilani.ac.in" style={{ color: 'inherit' }}>20240906@pilani.bits-pilani.ac.in</a>
+                    </div>
+                </div>
+            )
+        }
     ];
 
     const [openFaq, setOpenFaq] = useState<number | null>(null);

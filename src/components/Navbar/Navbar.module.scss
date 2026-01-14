@@ -47,8 +47,8 @@
     font-weight: 500;
     transition: all 0.3s ease;
     position: relative;
-
-    &::after {
+    
+    &:not(.ctaButton)::after {
       content: '';
       position: absolute;
       bottom: -4px;
@@ -61,7 +61,7 @@
 
     &:hover, &.active {
       color: #fff;
-      &::after {
+      &:not(.ctaButton)::after {
         width: 100%;
       }
     }
