@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import apogeeLogo from '../../../public/svgs/apogee26logo.svg';
 import styles from './Navbar.module.scss';
 
 const Navbar: React.FC = () => {
@@ -17,9 +18,9 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
-      <Link to="/" className={styles.logo}>
-        PEP 2026
-      </Link>
+      <a href="https://bits-apogee.org" target="_blank" rel="noopener noreferrer" className={styles.logo}>
+        <img src={apogeeLogo} alt="APOGEE 2026" style={{ height: '40px' }} />
+      </a>
       
       <div className={styles.navLinks}>
         <Link to="/" className={location.pathname === '/' ? styles.active : ''}>Home</Link>
