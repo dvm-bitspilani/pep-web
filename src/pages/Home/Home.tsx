@@ -195,17 +195,46 @@ const Home: React.FC = () => {
                     Rules & <span>Guidelines</span>
                 </motion.h2>
                 <div className={styles.grid}>
-                    <motion.div className={styles.card} whileHover={{ scale: 1.02 }}>
-                        <h3>Submission</h3>
-                        <p>All abstracts must be submitted in PDF format via the portal. Late submissions will not be accepted.</p>
+                    <motion.div className={styles.card} style={{ gridColumn: '1 / -1' }} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                        <h3>Registration Rules</h3>
+                        <ol style={{ paddingLeft: '20px', color: 'rgba(255, 255, 255, 0.7)', lineHeight: '1.8' }}>
+                            <li style={{ marginBottom: '10px' }}>Any team/individual participating in the event must currently be enrolled in any undergraduate course in a college.</li>
+                            <li style={{ marginBottom: '10px' }}>Submissions are invited across all academic departments of BITS Pilani, including but not limited to Biological Sciences, Chemical Engineering, Chemistry, Civil Engineering, Computer Science, Economics, Electrical & Electronics Engineering, Humanities and Social Sciences, Mechanical Engineering, Mathematics, Physics, and Pharmacy. Participants must select the most appropriate category at the time of submission.</li>
+                            <li style={{ marginBottom: '10px' }}>There can be a maximum of 2 co-authors mentioned in the submission form. Only the author has to make submissions. (A team of total 3 members is allowed - 1 author, 2 co authors, this can be relaxed on a case-by-case basis).</li>
+                            <li style={{ marginBottom: '10px' }}>Participants may submit original research papers, review papers, design projects, or case studies. The work must be original, unpublished, and authored by the participants. Papers developed as part of academic coursework, internships, or research projects may be submitted, provided the work is original and all collaborations, guidance, or institutional support are clearly acknowledged.</li>
+                            <li style={{ marginBottom: '10px' }}>It is expected that the abstract is submitted before the deadline as we get these abstracts verified. The professors will review these abstracts and the scores and comments (if any) will be shared with you. You can use these to update your paper as per the scope of the competition and the expectations of judges.</li>
+                            <li style={{ marginBottom: '10px' }}>The paper submission deadline is strict and should be adhered to.</li>
+                            <li style={{ marginBottom: '10px' }}>There will be a strict plagiarism and AI check at each stage. Failure to meet it would lead to straight disqualification without intimation.</li>
+                            <li style={{ marginBottom: '10px' }}>Each submission must strictly adhere to the formatting guidelines mentioned below. (We have also attached the sample LaTeX files)</li>
+                            <li style={{ marginBottom: '10px' }}>If the paper was written with the help of a professor, the name and contact details of the same must be shared.</li>
+                            <li style={{ marginBottom: '10px' }}>Participants are allowed to submit multiple papers. But they might be restricted while presenting during APOGEE due to available time slots.</li>
+                            <li style={{ marginBottom: '10px' }}>The evaluation of papers will be conducted online by BITS Pilani faculty. Selected finalists will be required to present their papers via an online meet during APOGEE at BITS Pilani, subject to schedule and time-slot availability.</li>
+                            <li style={{ marginBottom: '10px' }}>Participation certificates will be awarded to all teams whose papers are accepted and successfully presented as per the competition guidelines.</li>
+                            <li style={{ marginBottom: '10px' }}>All official communication regarding submissions, reviews, and presentations will be shared via the registered email ID. For queries, participants may contact the Paper Presentation team through the details provided on the official website.</li>
+                        </ol>
                     </motion.div>
-                    <motion.div className={styles.card} whileHover={{ scale: 1.02 }}>
-                        <h3>Formatting</h3>
-                        <p>Papers must follow the IEEE two-column format. Max page limit is 6 pages.</p>
-                    </motion.div>
-                    <motion.div className={styles.card} whileHover={{ scale: 1.02 }}>
-                        <h3>Eligibility</h3>
-                        <p>Open to all undergraduate students. Cross-college teams are allowed.</p>
+
+                    <motion.div className={styles.card} style={{ gridColumn: '1 / -1' }} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                        <h3>Format Guidelines</h3>
+                        <p style={{ marginBottom: '15px' }}>This conference uses the IEEE format while accepting paper submissions.</p>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                            <a 
+                                href="https://docs.google.com/document/d/1EjJqchIqQEU1iqOL18_rxgkwvdwfyvZg/edit?usp=sharing&ouid=117805771559184851792&rtpof=true&sd=true" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                style={{ color: '#00f3ff', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}
+                            >
+                                <span>📄 Abstract Submission Format</span>
+                            </a>
+                            <a 
+                                href="https://docs.google.com/document/d/1ogQ0l24drsTZBc3gTs4fGhtlQcm-W1YI/edit?usp=sharing&ouid=117805771559184851792&rtpof=true&sd=true" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                style={{ color: '#00f3ff', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}
+                            >
+                                <span>📄 Paper Submission Format</span>
+                            </a>
+                        </div>
                     </motion.div>
                 </div>
             </section>
