@@ -45,7 +45,7 @@ const Submissions: React.FC = () => {
         setAbstractSuccess("");
 
         axios
-            .post(`${API_BASE_URL}/registrations/submit-abstract/`, abstractFormData)
+            .post(`${API_BASE_URL}/registrations/reglink/`, abstractFormData)
             .then((response) => {
                 if (response.status === 200 || response.status === 201) {
                     setAbstractSuccess("Abstract submitted successfully!");
