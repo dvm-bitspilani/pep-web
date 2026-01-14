@@ -31,7 +31,7 @@ const Register: React.FC<{ onSuccess: (email: string) => void }> = ({
     category: "",
     co_author1: "",
     co_author2: "",
-    google_form_url: "",
+
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
@@ -201,19 +201,7 @@ const Register: React.FC<{ onSuccess: (email: string) => void }> = ({
           />
         </div>
 
-        <div className={styles.formGroup}>
-          <label>
-            Google Drive Link of the Abstract <span className={styles.required}>*</span>
-          </label>
-          <input
-            type="url"
-            name="google_form_url"
-            placeholder="https://drive.google.com/..."
-            required
-            value={formData.google_form_url}
-            onChange={handleChange}
-          />
-        </div>
+
 
         <button
           type="submit"

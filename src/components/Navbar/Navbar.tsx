@@ -23,6 +23,7 @@ const Navbar: React.FC = () => {
       
       <div className={styles.navLinks}>
         <Link to="/" className={location.pathname === '/' ? styles.active : ''}>Home</Link>
+        <Link to="/submissions" className={location.pathname === '/submissions' ? styles.active : ''}>Submissions</Link>
         <Link to="/contact" className={location.pathname === '/contact' ? styles.active : ''}>Contact</Link>
         <Link to="/registration" className={styles.ctaButton}>
           Register Now
