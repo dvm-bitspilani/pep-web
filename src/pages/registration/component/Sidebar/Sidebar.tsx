@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Atom, Briefcase, Calendar, Cog, CreditCard } from "lucide-react";
-import { Link } from "react-router-dom";
 import price from "../../../../../public/price.png";
 import apoogee from "../../../../../public/svgs/apogee26logo.svg";
 import styles from "./Sidebar.module.scss";
@@ -39,11 +38,7 @@ const Sidebar: React.FC<AppProps> = ({ bt = false }) => {
            <img src={apoogee} className={styles.logo} alt="APOGEE Logo" />
         </motion.div>
         
-        <Link to="/contact">
-          <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            Contact Us
-          </motion.button>
-        </Link>
+
       </div>
 
       <motion.div className={styles.topPage} variants={itemVariants}>

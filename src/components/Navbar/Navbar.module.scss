@@ -1,0 +1,92 @@
+@import "../../pages/registration/Registration.module.scss";
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+
+  &.scrolled {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0.8rem 2rem;
+  }
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(45deg, #00f3ff, #bd00ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navLinks {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+
+  a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #00f3ff, #bd00ff);
+      transition: width 0.3s ease;
+    }
+
+    &:hover, &.active {
+      color: #fff;
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.ctaButton {
+  padding: 0.6rem 1.5rem;
+  background: linear-gradient(45deg, #00f3ff, #bd00ff);
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(189, 0, 255, 0.4);
+  }
+}
+
+@media (max-width: 768px) {
+  .navLinks {
+    display: none; // Implement mobile menu if needed, for now simple hide or stack
+  }
+}

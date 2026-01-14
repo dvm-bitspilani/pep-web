@@ -1,18 +1,20 @@
 import "./App.css";
-import Registration from "./pages/registration/Registration";
 import Contacts from "./pages/Contacts/Contacts";
+import Home from "./pages/Home/Home";
+import Registration from "./pages/registration/Registration";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Registration />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/registration" element={<Registration />} />
         <Route path="/contact" element={<Contacts />} />
 
         {/* Optional fallback */}
-        <Route path="*" element={<Registration />} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,0 +1,258 @@
+.homecontainer {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(circle at center, rgba(0, 243, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+  padding: 0 2rem;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #fff 0%, #a5a5a5 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    @media (max-width: 768px) {
+      font-size: 3rem;
+    }
+  }
+
+  p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+  }
+}
+
+.ctaButton {
+  padding: 1rem 3rem;
+  font-size: 1.25rem;
+  background: linear-gradient(45deg, #00f3ff, #bd00ff);
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(189, 0, 255, 0.3);
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(189, 0, 255, 0.5);
+  }
+}
+
+.section {
+  padding: 8rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    color: #fff;
+    
+    span {
+      background: linear-gradient(45deg, #00f3ff, #bd00ff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 243, 255, 0.5);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+  }
+}
+
+.judgeCard {
+  @extend .card;
+  text-align: center;
+
+  .image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(45deg, #00f3ff, #bd00ff);
+    overflow: hidden;
+    position: relative;
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+  }
+  
+  .achievement {
+    font-size: 0.9rem;
+    color: #00f3ff;
+    margin-top: 0.5rem;
+  }
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, #bd00ff, transparent);
+    
+    @media (max-width: 768px) {
+      left: 20px;
+    }
+  }
+}
+
+.timelineItem {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 50px;
+  position: relative;
+  margin-bottom: 3rem;
+  width: 50%;
+
+  &:nth-child(even) {
+    align-self: flex-end;
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: 50px;
+    margin-left: auto;
+
+    &::after {
+      left: -6px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 0;
+    margin-left: 0 !important;
+    justify-content: flex-start;
+    
+    &::after {
+        left: 14px !important; // Adjust bullet position
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: -6px;
+    width: 12px;
+    height: 12px;
+    background: #00f3ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00f3ff;
+    z-index: 10;
+  }
+}
+
+.timelineContent {
+  @extend .card;
+  padding: 1.5rem;
+  width: 100%;
+  
+  h3 { margin-bottom: 0.5rem; }
+  .date { color: #bd00ff; font-weight: bold; margin-bottom: 0.5rem; display: block; }
+}
+
+.accordion {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.accordionItem {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1rem;
+}
+
+.accordionHeader {
+  width: 100%;
+  padding: 1.5rem;
+  background: none;
+  border: none;
+  color: #fff;
+  text-align: left;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #00f3ff;
+  }
+}
+
+.accordionContent {
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0 1.5rem;
+  line-height: 1.6;
+}

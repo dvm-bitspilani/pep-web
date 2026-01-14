@@ -1,5 +1,4 @@
-import { Link } from "react-router";
-import apoogee from "../../../public/svgs/apogee26logo.svg";
+import Navbar from "../../components/Navbar/Navbar";
 import { contacts } from "./contactList";
 import styles from "./Contacts.module.scss";
 import contactIcon from "/Contacts/contactIcon.svg";
@@ -7,18 +6,9 @@ import contactIcon from "/Contacts/contactIcon.svg";
 export default function Contacts(): React.ReactElement {
     return (
         <div className={styles.container}>
-            <header className={styles.header}>
-                <div className={styles.title}>
-                    <img src={apoogee} alt="APOGEE Logo" />
-                </div>
-                <Link to="/" style={{textDecoration: "none"}}>
-                    <div className={styles.registerBtn}>
-                        Register
-                    </div>
-                </Link>
-            </header>
+            <Navbar />
 
-            <main className={styles.main}>
+            <main className={styles.main} style={{ paddingTop: '80px', minHeight: '100vh', display: 'flex', flexDirection: 'column', width: '100%' }}>
                 <div className={styles.heading}>
                     <img src={contactIcon} alt="" className={styles.contactIcon} />
                     <span>Contact Us</span>
