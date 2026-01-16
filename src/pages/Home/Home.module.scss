@@ -1,8 +1,25 @@
 .homecontainer {
   min-height: 100vh;
-  background: #0a0a0a;
+  background: #0a0a0a; // Fallback / Base color
   color: #fff;
   overflow-x: hidden;
+  position: relative;
+}
+
+.interactiveBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    
+    // Grid Pattern
+    background-image: 
+        linear-gradient(to right, rgba(0, 243, 255, 0.2) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 243, 255, 0.2) 1px, transparent 1px);
+    background-size: 50px 50px;
 }
 
 .hero {
@@ -12,8 +29,22 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: radial-gradient(circle at center, rgba(0, 243, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+  // background: radial-gradient(circle at center, rgba(0, 243, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
   padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to bottom, transparent, #0a0a0a);
+    pointer-events: none;
+    z-index: 1;
+  }
 
   div {
     display: flex;
@@ -68,6 +99,8 @@
   padding: 8rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 
   h2 {
     font-size: 3rem;

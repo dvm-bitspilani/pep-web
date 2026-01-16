@@ -1,6 +1,6 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
 import styles from './Home.module.scss';
@@ -16,6 +16,26 @@ const staggerContainer = {
 };
 
 const Home: React.FC = () => {
+    // Mouse Motion Values
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
+
+    const maskImage = useMotionTemplate`radial-gradient(
+        400px circle at ${mouseX}px ${mouseY}px,
+        black 0%,
+        transparent 100%
+    )`;
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            mouseX.set(e.clientX);
+            mouseY.set(e.clientY);
+        };
+
+        window.addEventListener("mousemove", handleMouseMove);
+        return () => window.removeEventListener("mousemove", handleMouseMove);
+    }, [mouseX, mouseY]);
+
     // FAQ Data
     const faqs = [
         { 
@@ -122,7 +142,13 @@ const Home: React.FC = () => {
             
             {/* Hero Section */}
             <section className={styles.hero}>
-                <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
+                {/* Interactive Background */}
+                <motion.div 
+                    className={styles.interactiveBackground}
+                    style={{ maskImage, WebkitMaskImage: maskImage }}
+                />
+                
+                <motion.div initial="hidden" animate="visible" variants={staggerContainer} style={{ zIndex: 2 }}>
                     <motion.h1 variants={fadeInUp}>Paper Presentation 2026</motion.h1>
                     <motion.p variants={fadeInUp}>
                         Unleash your intellect. Present your ideas. Compete with the best minds across the nation
