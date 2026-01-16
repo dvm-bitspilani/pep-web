@@ -57,6 +57,7 @@
       height: 2px;
       background: linear-gradient(90deg, #00f3ff, #bd00ff);
       transition: width 0.3s ease;
+      border-radius: 5px;
     }
 
     &:hover, &.active {
