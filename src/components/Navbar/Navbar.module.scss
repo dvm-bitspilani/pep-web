@@ -121,7 +121,7 @@
 
   .closeBtn {
       position: absolute;
-      top: 2rem;
+      top: 1.5rem;
       right: 2rem;
       cursor: pointer;
       width: 48px;
@@ -145,76 +145,75 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
     z-index: 1003;
 
     a {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5); // Outline effect
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.5); /* Solid color, dimmed by default */
       text-decoration: none;
-      transition: all 0.4s ease;
+      transition: all 0.3s ease;
       position: relative;
       text-transform: uppercase;
       letter-spacing: 2px;
-      font-family: 'Orbitron', sans-serif; // Assuming you have this font or similar
+      font-family: 'Orbitron', sans-serif;
 
       &.active,
       &:hover {
-        color: #fff; // Fill on hover
-        -webkit-text-stroke: 0px transparent;
+        color: #fff; /* Bright white on hover/active */
         transform: scale(1.05);
-        text-shadow: 0 0 30px rgba(0, 243, 255, 0.8);
+        text-shadow: 0 0 20px rgba(0, 243, 255, 0.6);
       }
       
       &:hover::after {
           width: 100%;
       }
-    }
-  }
 
-  .mobileCtaButton {
-    margin-top: 2rem;
-    padding: 1rem 3.5rem;
-    background: transparent;
-    border: 1px solid #00f3ff;
-    border-radius: 0; // Sharp edges for sophistication
-    color: #00f3ff;
-    font-size: 1.2rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    display: inline-block; // Ensure block model for overflow
-    z-index: 1; // Create stacking context to contain negative z-index children
-
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+      /* Nest CTA button styles here or ensure it's targeted correctly. 
+         Actually, let's keep it simple and just use the specific class below, 
+         but I'm moving the block above to be *inside* here or just changing how it's defined.
+         Wait, I'll just leave this block, and I already moved the .mobileCtaButton block in the previous chunk?
+         NO, I need to insert it *inside* .mobileNavLinks or ensure specificity.
+         The previous chunk REPLACED .mobileCtaButton with .mobileCtaButton (but nicely formatted).
+         However, it's still outside .mobileNavLinks in that replacement unless I move it.
+         
+         Let's do this: 
+         1. Remove the standalone .mobileCtaButton block (TargetContent matches it).
+         2. Insert it INSIDE .mobileNavLinks using this chunk.
+      */
+      
+      &.mobileCtaButton {
+        margin-top: 1.5rem;
+        padding: 0.9rem 2.8rem;
         background: linear-gradient(45deg, #00f3ff, #bd00ff);
-        z-index: -1;
-        transition: transform 0.4s ease;
-        transform: translateX(-100%);
-    }
+        border: none;
+        border-radius: 50px;
+        color: #fff !important; /* Force white color */
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-decoration: none;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        opacity: 1; 
 
-    &:hover {
-        color: #fff;
-        border-color: transparent;
-        box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
-        
-        &::before {
-            transform: translateX(0);
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(189, 0, 255, 0.5);
+            color: #fff;
+            text-shadow: none;
         }
+
+        &::after {
+            display: none; /* No underline for button */
+        }
+      }
     }
   }
+
+
 
   // Refined Decorative Background Circles
   .decorationCircle1 {
