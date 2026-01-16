@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, useMotionTemplate, useMotionValue } from 'framer-motion';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
@@ -21,7 +21,7 @@ const Home: React.FC = () => {
     const mouseY = useMotionValue(0);
 
     const maskImage = useMotionTemplate`radial-gradient(
-        400px circle at ${mouseX}px ${mouseY}px,
+        250px circle at ${mouseX}px ${mouseY}px,
         black 0%,
         transparent 100%
     )`;
@@ -136,6 +136,47 @@ const Home: React.FC = () => {
         setOpenFaq(openFaq === index ? null : index);
     };
 
+    // Judges Data
+    // Judges Data
+    const judges = [
+        {
+            name: "Sandeep Joshi",
+            areas: "AI in Wireless Communications, B5G/6G Communications, Digital Signal Processing, Molecular Communication",
+            phone: "+91-1596-25-5761",
+            email: "sandeep.joshi@pilani.bits-pilani.ac.in",
+            location: "Room No. 2210-I, Faculty Division-II",
+            linkedin: "https://www.linkedin.com/in/sandeep-joshi-61784511/",
+            image: "/judge_pics/Sandeep Joshi, Associate Professor,  Department of Electrical & Electronics Engineering .png"
+        },
+        {
+            name: "Asish Bera",
+            areas: "Artificial Intelligence, Computer Vision, Deep Learning, Human Action Recognition, Image Processing, Machine Learning",
+            phone: "+91-1596-25-5627",
+            email: "asish.bera@pilani.bits-pilani.ac.in",
+            location: "Chamber 6120-D, New Academic Block",
+            linkedin: "https://www.linkedin.com/in/asish-bera-480b3614",
+            image: "/judge_pics/Asish Bera, Assistant Professor Department of Computer Science & Information Systems, BITS Pilani.png"
+        },
+        {
+            name: "Vinti Agarwal",
+            areas: "Machine Learning and Deep Learning, Natural Language Processing, Network Analysis, Social Informatics",
+            phone: "+91 1596255770",
+            email: "vinti.agarwal@pilani.bits-pilani.ac.in",
+            location: "6121D, New Academic Building, Dept. of CS & IS",
+            linkedin: null,
+            image: "/judge_pics/Vinti Agarwal, Assistant Professor, Department of Computer Science & Information Systems, BITS Pilani.png"
+        },
+        {
+            name: "Vani B.",
+            areas: "Environmental Biotechnology",
+            phone: "+91 1596 255 645",
+            email: "kvani70@pilani.bits-pilani.ac.in",
+            location: null,
+            linkedin: null,
+            image: "/judge_pics/Vani B, Associate Professor Department of Biological Sciences, BITS Pilani.png"
+        }
+    ];
+
     return (
         <div className={styles.homecontainer}>
             <Navbar />
@@ -172,15 +213,37 @@ const Home: React.FC = () => {
                     viewport={{ once: true }}
                     variants={staggerContainer}
                 >
-                    {[1, 2, 3].map((i) => (
-                        <motion.div key={i} className={styles.judgeCard} variants={fadeInUp}>
+                    {judges.map((judge, index) => (
+                        <motion.div key={index} className={styles.judgeCard} variants={fadeInUp}>
                             <div className={styles.image}>
-                                {/* Placeholder for Judge Image */}
-                                <div style={{ width: '100%', height: '100%', background: '#333' }}></div> 
+                                <img src={judge.image} alt={judge.name} />
                             </div>
-                            <h3>Dr. Distinguished Expert</h3>
-                            <p>Senior Professor, IIT Delhi</p>
-                            <p className={styles.achievement}>20+ Years Research Experience</p>
+                            <h3>{judge.name}</h3>
+                            <p style={{ fontSize: '0.9rem', marginBottom: '1rem', minHeight: '60px' }}>{judge.areas}</p>
+                            
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', alignItems: 'center' }}>
+                                {judge.location && (
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center' }}>
+                                        <MapPin size={14} />
+                                        <span>{judge.location}</span>
+                                    </div>
+                                )}
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center' }}>
+                                    <Mail size={14} />
+                                    <a href={`mailto:${judge.email}`} style={{ color: 'inherit', textDecoration: 'none' }}>{judge.email}</a>
+                                </div>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center' }}>
+                                    <Phone size={14} />
+                                    <span>{judge.phone}</span>
+                                </div>
+                                {judge.linkedin && (
+                                    <div style={{ marginTop: '5px' }}>
+                                        <a href={judge.linkedin} target="_blank" rel="noopener noreferrer" style={{ color: '#0077b5', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                                            <Linkedin size={16} /> <span style={{ color: 'rgba(255,255,255,0.8)' }}>LinkedIn</span>
+                                        </a>
+                                    </div>
+                                )}
+                            </div>
                         </motion.div>
                     ))}
                 </motion.div>

@@ -17,9 +17,10 @@
     
     // Grid Pattern
     background-image: 
-        linear-gradient(to right, rgba(0, 243, 255, 0.2) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 243, 255, 0.2) 1px, transparent 1px);
+        linear-gradient(to right, rgba(0, 243, 255, 0.4) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 243, 255, 0.4) 1px, transparent 1px);
     background-size: 50px 50px;
+    filter: drop-shadow(0 0 2px #00f3ff);
 }
 
 .hero {
@@ -118,8 +119,9 @@
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
 }
 
@@ -152,6 +154,10 @@
 .judgeCard {
   @extend .card;
   text-align: center;
+  flex: 0 1 350px; // Flex basis of 350px, can shrink but not grow (or grow if you want) - using 0 1 or 1 1. 0 1 350px keeps them uniform.
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 
   .image {
     width: 150px;
@@ -161,6 +167,7 @@
     background: linear-gradient(45deg, #00f3ff, #bd00ff);
     overflow: hidden;
     position: relative;
+    border: 3px solid rgba(0, 243, 255, 0.3);
     
     img {
         width: 100%;
