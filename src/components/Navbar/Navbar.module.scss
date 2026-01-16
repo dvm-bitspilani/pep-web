@@ -86,8 +86,168 @@
   }
 }
 
-@media (max-width: 768px) {
+
+
+.mobileMenuBtn {
+  display: none; // Hidden on desktop
+  cursor: pointer;
+  z-index: 1001;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  // Sophisticated dark gradient background
+  background: radial-gradient(circle at top right, #1a0b2e, #000000); 
+  backdrop-filter: blur(20px);
+  z-index: 1002; // Higher than everything
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  .closeBtn {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      cursor: pointer;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+
+      &:hover {
+          transform: rotate(90deg);
+          background: rgba(255, 255, 255, 0.1);
+          border-color: #00f3ff;
+      }
+  }
+
+  .mobileNavLinks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    z-index: 1003;
+
+    a {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5); // Outline effect
+      text-decoration: none;
+      transition: all 0.4s ease;
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-family: 'Orbitron', sans-serif; // Assuming you have this font or similar
+
+      &.active,
+      &:hover {
+        color: #fff; // Fill on hover
+        -webkit-text-stroke: 0px transparent;
+        transform: scale(1.05);
+        text-shadow: 0 0 30px rgba(0, 243, 255, 0.8);
+      }
+      
+      &:hover::after {
+          width: 100%;
+      }
+    }
+  }
+
+  .mobileCtaButton {
+    margin-top: 2rem;
+    padding: 1rem 3.5rem;
+    background: transparent;
+    border: 1px solid #00f3ff;
+    border-radius: 0; // Sharp edges for sophistication
+    color: #00f3ff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: inline-block; // Ensure block model for overflow
+    z-index: 1; // Create stacking context to contain negative z-index children
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #00f3ff, #bd00ff);
+        z-index: -1;
+        transition: transform 0.4s ease;
+        transform: translateX(-100%);
+    }
+
+    &:hover {
+        color: #fff;
+        border-color: transparent;
+        box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+        
+        &::before {
+            transform: translateX(0);
+        }
+    }
+  }
+
+  // Refined Decorative Background Circles
+  .decorationCircle1 {
+    position: absolute;
+    top: -10vw;
+    right: -10vw;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(189, 0, 255, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(40px);
+  }
+
+  .decorationCircle2 {
+    position: absolute;
+    bottom: -10vw;
+    left: -10vw;
+    width: 70vw;
+    height: 70vw;
+    background: radial-gradient(circle, rgba(0, 243, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(40px);
+  }
+}
+
+@media (max-width: 1024px) {
   .navLinks {
-    display: none; // Implement mobile menu if needed, for now simple hide or stack
+    display: none;
+  }
+
+  .mobileMenuBtn {
+    display: flex; // Visible on mobile
   }
 }
