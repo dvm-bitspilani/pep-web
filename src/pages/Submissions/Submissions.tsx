@@ -26,7 +26,7 @@ const Submissions: React.FC = () => {
     // Paper Submission State
     const [paperFormData, setPaperFormData] = useState({
         email: "",
-        google_form_url: "",
+        paper_url: "",
     });
     const [paperLoading, setPaperLoading] = useState(false);
     const [paperSuccess, setPaperSuccess] = useState("");
@@ -45,7 +45,7 @@ const Submissions: React.FC = () => {
         setAbstractSuccess("");
 
         axios
-            .post(`${API_BASE_URL}/registrations/reglink/`, abstractFormData)
+            .post(`${API_BASE_URL}/registrations/abstract_submission/`, abstractFormData)
             .then((response) => {
                 if (response.status === 200 || response.status === 201) {
                     setAbstractSuccess("Abstract submitted successfully!");
@@ -80,11 +80,11 @@ const Submissions: React.FC = () => {
         setPaperSuccess("");
 
         axios
-            .post(`${API_BASE_URL}/registrations/submit-paper/`, paperFormData)
+            .post(`${API_BASE_URL}/registrations/paper_submission/`, paperFormData)
             .then((response) => {
                 if (response.status === 200 || response.status === 201) {
                     setPaperSuccess("Paper submitted successfully!");
-                    setPaperFormData({ email: "", google_form_url: "" });
+                    setPaperFormData({ email: "", paper_url: "" });
                 } else {
                     setPaperError(response.data.error || response.data.message || "Submission failed");
                 }
@@ -235,10 +235,10 @@ const Submissions: React.FC = () => {
                                             </label>
                                             <input
                                                 type="url"
-                                                name="google_form_url"
+                                                name="paper_url"
                                                 placeholder="https://drive.google.com/..."
                                                 required
-                                                value={paperFormData.google_form_url}
+                                                value={paperFormData.paper_url}
                                                 onChange={handlePaperChange}
                                             />
                                         </div>
