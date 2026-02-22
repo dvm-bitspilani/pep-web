@@ -7,8 +7,8 @@ import styles from "./Submissions.module.scss";
 
 const Submissions: React.FC = () => {
     // Deadlines
-    const DEADLINE_ABSTRACT = new Date("2026-02-20T23:59:59");
-    const DEADLINE_PAPER = new Date("2026-03-05T23:59:59");
+    const DEADLINE_ABSTRACT = new Date("2026-03-09T23:59:59");
+    const DEADLINE_PAPER = new Date("2026-03-09T23:59:59");
     
     const currentDate = new Date();
     const isAbstractOpen = currentDate <= DEADLINE_ABSTRACT;
