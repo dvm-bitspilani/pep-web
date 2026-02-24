@@ -129,11 +129,11 @@ const Sidebar: React.FC<AppProps> = ({ bt = false }) => {
              </div>
              <div className={styles.dateRow}>
                 <span>Abstract Submission</span>
-                <span className={styles.dateVal}>20th Feb</span>
+                <span className={styles.dateVal}>9th Mar</span>
              </div>
              <div className={styles.dateRow}>
                 <span>Paper Submission</span>
-                <span className={styles.dateVal}>5th Mar</span>
+                <span className={styles.dateVal}>20th Mar</span>
              </div>
              <div className={styles.dateRow}>
                 <span>Paper Presentation - APOGEE</span>
