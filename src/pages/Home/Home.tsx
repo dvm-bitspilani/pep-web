@@ -257,8 +257,8 @@ const Home: React.FC = () => {
                 <div className={styles.timeline}>
                     {[
                         { title: "Early Bird Registration Ends", date: "5th Feb" },
-                        { title: "Abstract Submission Deadline", date: "20th Feb" },
-                        { title: "Paper Submission Deadline", date: "5th Mar" },
+                        { title: "Abstract Submission Deadline", date: "9th Mar" },
+                        { title: "Paper Submission Deadline", date: "20th Mar" },
                         { title: "APOGEE 2026", date: "TBA" }
                     ].map((item, index) => (
                         <motion.div 
