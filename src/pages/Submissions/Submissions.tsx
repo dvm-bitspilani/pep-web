@@ -7,8 +7,8 @@ import styles from "./Submissions.module.scss";
 
 const Submissions: React.FC = () => {
     // Deadlines
-    const DEADLINE_ABSTRACT = new Date("2026-03-09T23:59:59");
-    const DEADLINE_PAPER = new Date("2026-03-20T23:59:59");
+    const DEADLINE_ABSTRACT = new Date("2026-03-25T23:59:59");
+    const DEADLINE_PAPER = new Date("2026-03-25T23:59:59");
     
     const currentDate = new Date();
     const isAbstractOpen = currentDate <= DEADLINE_ABSTRACT;
@@ -136,7 +136,7 @@ const Submissions: React.FC = () => {
                                     {abstractSuccess && <div className={styles.success}>{abstractSuccess}</div>}
                                     {!abstractSuccess && (
                                         <div className={styles.info}>
-                                            <strong>Deadline: 9th Mar 2026</strong>
+                                            <strong>Deadline: 25th Mar 2026</strong>
                                             <p>Please ensure you have registered before submitting your abstract.</p>
                                         </div>
                                     )}
@@ -209,7 +209,7 @@ const Submissions: React.FC = () => {
                                     {paperSuccess && <div className={styles.success}>{paperSuccess}</div>}
                                     {!paperSuccess && (
                                         <div className={styles.info}>
-                                            <strong>Deadline: 20th Mar 2026</strong>
+                                            <strong>Deadline: 25th Mar 2026</strong>
                                             <p>Abstract submission must be cleared before submitting your paper.</p>
                                         </div>
                                     )}
